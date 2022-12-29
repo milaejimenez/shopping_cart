@@ -9,7 +9,7 @@ import Products from './pages/products/Products';
 import Cart from './pages/cart/Cart';
 import Productdetails from './pages/products/Productdetails';
 
-//counter to keep track of product's quantity
+//counter to keep track of a single product's quantity
 let counter = 1;
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
       return counter;
     };
 
+    //checks if product is already in the cart's array. If true, adds quantity propery to object. If false, adds the product.
     if (cart.some((item) => item.id === product.id)) {
       const newArray = cart.map((item) =>
         item.id === product.id
@@ -30,14 +31,26 @@ function App() {
       );
       setCart(newArray);
     } else {
-      setCart((prevCart) => [...prevCart, product]);
+      const newObj = { ...product, quantity: 1 };
+      setCart((prevCart) => [...prevCart, newObj]);
     }
   };
 
-  //Remove from cart function
   const removeFromCart = function () {};
 
-  //Render component
+  //Remove from cart function
+  // const removeFromCart = function (product) {
+  //   const objIndex = cart.findIndex((obj) => obj.id == product.id);
+  //   const newArray = (cart[objIndex].quantity = product.quantity - 1);
+  //   setCart(newArray);
+  // };
+
+  // Calculate total products quantity
+  const totalItems = cart.reduce(function (acc, obj) {
+    return acc + obj.quantity;
+  }, 0);
+
+  console.log(totalItems);
   return (
     <div className="App">
       <BrowserRouter>
