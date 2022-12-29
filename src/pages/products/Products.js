@@ -1,8 +1,8 @@
 import './Products.css';
-
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-//Url paths
+//Endpoints
 const allProducts = 'https://fakestoreapi.com/products';
 const selectCategories = 'https://fakestoreapi.com/products/category';
 const electronics = selectCategories + '/electronics';
@@ -10,10 +10,16 @@ const jewelery = selectCategories + '/jewelery';
 const womensClothing = selectCategories + "/women's%20clothing";
 const mensClothing = selectCategories + "/men's%20clothing";
 
-export default function Products() {
+export default function Products({ handleAddToCart }) {
+  //State to save product data
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(allProducts);
+
+  //Set the url
+  const handleUrl = function (path) {
+    setUrl(path);
+  };
 
   //Fetch data
   useEffect(() => {
@@ -25,11 +31,6 @@ export default function Products() {
         console.log(error);
       });
   }, [setProducts, setError, url]);
-
-  //Set the url
-  const handleUrl = function (path) {
-    setUrl(path);
-  };
 
   return (
     <div>
@@ -75,8 +76,17 @@ export default function Products() {
         products.map((product) => (
           <div key={product.id}>
             <h2>{product.title}</h2>
+            <p>{product.price + ' $'}</p>
             <img src={product.image} alt={product.title} />
-            <p>{product.description}</p>
+            <Link to={`/productdetails/${product.id}`}>Read more...</Link>
+            <button
+              type="button"
+              onClick={() => {
+                handleAddToCart(product);
+              }}
+            >
+              Add to cart
+            </button>
           </div>
         ))}
       {error && <p>{error}</p>}
