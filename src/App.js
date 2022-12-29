@@ -9,24 +9,16 @@ import Products from './pages/products/Products';
 import Cart from './pages/cart/Cart';
 import Productdetails from './pages/products/Productdetails';
 
-//counter to keep track of a single product's quantity
-let counter = 1;
-
 function App() {
   //Add from cart functions
   const [cart, setCart] = useState([]);
 
   const addToCart = function (product) {
-    const increaseQuantity = function () {
-      counter++;
-      return counter;
-    };
-
-    //checks if product is already in the cart's array. If true, adds quantity propery to object. If false, adds the product.
+    //checks if product is already in the cart's array. If true, increases quantity propery in object. If false, adds the product and sets quantity to one.
     if (cart.some((item) => item.id === product.id)) {
       const newArray = cart.map((item) =>
         item.id === product.id
-          ? { ...item, quantity: increaseQuantity() }
+          ? { ...item, quantity: product.quantity + 1 }
           : item
       );
       setCart(newArray);
@@ -36,21 +28,17 @@ function App() {
     }
   };
 
-  const removeFromCart = function () {};
-
-  //Remove from cart function
-  // const removeFromCart = function (product) {
-  //   const objIndex = cart.findIndex((obj) => obj.id == product.id);
-  //   const newArray = (cart[objIndex].quantity = product.quantity - 1);
-  //   setCart(newArray);
-  // };
-
+  const removeFromCart = function (product) {
+    const newArray = cart.map((item) =>
+      item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
+    );
+    setCart(newArray);
+  };
   // Calculate total products quantity
   const totalItems = cart.reduce(function (acc, obj) {
     return acc + obj.quantity;
   }, 0);
 
-  console.log(totalItems);
   return (
     <div className="App">
       <BrowserRouter>
