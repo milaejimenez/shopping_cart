@@ -22,6 +22,7 @@ button:hover {
 }
 
 .product-items {
+  margin-bottom: 250px;
   padding: 30px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

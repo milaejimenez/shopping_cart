@@ -21,7 +21,7 @@ export default function Home() {
   }, [setProducts, setError]);
 
   return (
-    <div>
+    <div className="content-wrapper">
       <div
         className="jumbotron"
         style={{ backgroundImage: "url('/jumbotron-img.jpg')" }}

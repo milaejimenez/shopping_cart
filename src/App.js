@@ -28,10 +28,12 @@ function App() {
   };
 
   const removeFromCart = function (product) {
-    const newArray = cart.map((item) =>
-      item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
-    );
-    setCart(newArray);
+    if (product.quantity !== 0) {
+      const newArray = cart.map((item) =>
+        item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
+      );
+      setCart(newArray);
+    }
   };
 
   // Calculate total products quantity
@@ -60,6 +62,7 @@ function App() {
                 cart={cart}
                 handleAddToCart={addToCart}
                 handleRemoveFromCart={removeFromCart}
+                totalItems={totalItems}
               />
             }
           />
