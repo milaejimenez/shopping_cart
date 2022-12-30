@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import { ReactComponent as Cart } from './cart.svg';
 
-export default function Navbar() {
+export default function Navbar({ totalItems }) {
   return (
     <div className="Navbar">
       <nav>
@@ -10,7 +11,10 @@ export default function Navbar() {
         <div className="navlinks">
           <Link to="/">Home</Link>
           <Link to="/products">Products</Link>
-          <Link to="/cart">Shopping Cart</Link>
+          <Link to="/cart">
+            <Cart width="50px" height="50px" />
+            <span>{totalItems}</span>
+          </Link>
         </div>
       </nav>
     </div>

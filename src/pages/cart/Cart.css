@@ -1,0 +1,63 @@
+.shopping-cart {
+  margin: 50px 100px;
+}
+
+/* Item cards with price and buttons */
+
+.product {
+  margin: 20px 0;
+  padding: 40px;
+  border: 1px solid black;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+}
+
+.add-remove {
+  display: flex;
+  align-items: center;
+}
+
+.add-remove > * {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 0;
+  background: white;
+  font-size: clamp(1rem, 1.6vw, 1.7rem);
+}
+
+.product button:hover {
+  border: 1px solid #ff5c33;
+}
+
+/* Total Price section */
+
+.total-price {
+  margin: 40px 0;
+  border: 1px solid black;
+  padding: 40px;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.total-price h3 {
+  margin: 0 0 10px 0;
+}
+
+.total-price div {
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+}
+
+.total-price button {
+  margin: 30px 80px;
+  height: 40px;
+  border: none;
+  text-transform: uppercase;
+  background-color: #ff5c33;
+  border-radius: 10px;
+}
+
+.total-price button:hover {
+  border: 2px solid black;
+}

@@ -15,18 +15,36 @@ export default function Cart({ cart, handleAddToCart, handleRemoveFromCart }) {
   const totalPrice = (Math.round(calculatePrice * 100) / 100).toFixed(2);
 
   return (
-    <div>
+    <div className="shopping-cart">
       <h1>Shopping Cart</h1>
       {cart.map((product) => (
-        <div key={product.id}>
+        <div key={product.id} className="product">
           <p>{product.title}</p>
-          <p>{product.price}</p>
-          <p>{product.quantity}</p>
-          <button onClick={() => handleAddToCart(product)}>Add</button>
-          <button onClick={() => handleRemoveFromCart(product)}>Remove</button>
+          <p>Price: {product.price}</p>
+          <p>Quantity: {product.quantity}</p>
+          <div class="add-remove">
+            <button onClick={() => handleAddToCart(product)}>+</button>
+            <p>{product.quantity}</p>
+            <button onClick={() => handleRemoveFromCart(product)}>-</button>
+          </div>
         </div>
       ))}
-      <p>Total Price: {totalPrice}</p>
+      <div class="total-price">
+        <h3>Total</h3>
+        <div>
+          <p>Sub-total</p>
+          <p>{totalPrice}</p>
+        </div>
+        <div>
+          <p>Shipping</p>
+          <p>Free</p>
+        </div>
+        <div>
+          <p>Total(VAT incl.)</p>
+          <p>{totalPrice}</p>
+        </div>
+        <button type="button">Order</button>
+      </div>
     </div>
   );
 }

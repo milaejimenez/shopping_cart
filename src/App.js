@@ -43,7 +43,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        <Navbar totalItems={totalItems} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route

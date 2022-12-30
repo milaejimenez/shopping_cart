@@ -1,0 +1,47 @@
+h1 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.products-page {
+  padding: 30px;
+}
+
+.buttons button {
+  margin: 10px;
+  width: 150px;
+  height: 35px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ff5c33;
+  color: white;
+  font-size: 1rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.product-items {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 80px;
+  align-items: center;
+  justify-items: center;
+}
+.product-items h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.product-items img {
+  width: 240px;
+  height: 340px;
+}
+
+.product-items button {
+  width: 100px;
+  height: 30px;
+  border: none;
+}

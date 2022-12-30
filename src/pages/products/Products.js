@@ -33,9 +33,9 @@ export default function Products({ handleAddToCart }) {
   }, [setProducts, setError, url]);
 
   return (
-    <div>
+    <div className="products-page">
       <h1>Products</h1>
-      <div>
+      <div className="buttons">
         <button type="button" onClick={() => handleUrl(allProducts)}>
           All Products
         </button>
@@ -72,24 +72,27 @@ export default function Products({ handleAddToCart }) {
           Men's Clothing
         </button>
       </div>
-      {products &&
-        products.map((product) => (
-          <div key={product.id}>
-            <h2>{product.title}</h2>
-            <p>{product.price + ' $'}</p>
-            <img src={product.image} alt={product.title} />
-            <Link to={`/productdetails/${product.id}`}>Read more...</Link>
-            <button
-              type="button"
-              onClick={() => {
-                handleAddToCart(product);
-              }}
-            >
-              Add to cart
-            </button>
-          </div>
-        ))}
-      {error && <p>{error}</p>}
+      <div className="product-items">
+        {products &&
+          products.map((product) => (
+            <div key={product.id}>
+              <Link to={`/productdetails/${product.id}`}>
+                <img src={product.image} alt={product.title} />
+              </Link>
+              <h2>{product.title.slice(0, 38)}</h2>
+              <p>{product.price + ' $'}</p>
+              <button
+                type="button"
+                onClick={() => {
+                  handleAddToCart(product);
+                }}
+              >
+                Add to cart
+              </button>
+            </div>
+          ))}
+        {error && <p>{error}</p>}
+      </div>
     </div>
   );
 }
