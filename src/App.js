@@ -4,6 +4,7 @@ import './App.css';
 
 //page components
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Home from './pages/home/Home';
 import Products from './pages/products/Products';
 import Cart from './pages/cart/Cart';
@@ -17,9 +18,7 @@ function App() {
     //checks if product is already in the cart's array. If true, increases quantity propery in object. If false, adds the product and sets quantity to one.
     if (cart.some((item) => item.id === product.id)) {
       const newArray = cart.map((item) =>
-        item.id === product.id
-          ? { ...item, quantity: product.quantity + 1 }
-          : item
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
       );
       setCart(newArray);
     } else {
@@ -66,6 +65,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }

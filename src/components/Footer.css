@@ -1,0 +1,38 @@
+.footer {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ff5c33;
+}
+
+.newsletter {
+  margin-right: 0px;
+}
+
+.footer input {
+  padding: 10px;
+  width: minmax(15vw, 100px);
+  height: 15px;
+  border: none;
+  border-radius: 10px;
+}
+
+.footer input::placeholder {
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+.footer button {
+  margin: 10px;
+  width: 100px;
+  height: 35px;
+  border: none;
+}
+
+.footer-links {
+  display: flex;
+}
+
+.footer-links div {
+  padding: 0px 40px;
+}
