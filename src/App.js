@@ -10,7 +10,7 @@ import Cart from './pages/cart/Cart';
 import Productdetails from './pages/products/Productdetails';
 
 function App() {
-  //Add from cart functions
+  //Add and remove from cart functions
   const [cart, setCart] = useState([]);
 
   const addToCart = function (product) {
@@ -34,6 +34,7 @@ function App() {
     );
     setCart(newArray);
   };
+
   // Calculate total products quantity
   const totalItems = cart.reduce(function (acc, obj) {
     return acc + obj.quantity;
