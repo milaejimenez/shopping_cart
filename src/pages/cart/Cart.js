@@ -23,6 +23,14 @@ export default function Cart({
   // Get only first two decimals
   const totalPrice = (Math.round(calculatePrice * 100) / 100).toFixed(2);
 
+  //Delete items that reach quantity 0
+  cart.map((product) => {
+    if (product.quantity === 0) {
+      const index = cart.indexOf(product);
+      cart.splice(index, 1);
+    }
+  });
+
   //Conditional rendering: if shopping cart is empty, display message. Else, map over cart state.
   let displayCart;
   let displayTotalPrice;
