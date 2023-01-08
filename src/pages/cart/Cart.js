@@ -53,7 +53,7 @@ export default function Cart({
       </div>
     ));
   }
-  // Displays total price if cart is empty
+  // Displays total price if cart is not empty
   if (cart.length !== 0) {
     displayTotalPrice = (
       <div>
