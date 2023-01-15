@@ -22,16 +22,17 @@ describe('Products page - Test functionality', () => {
       Promise.resolve({ json: () => Promise.resolve(mockData) });
   });
   it('renders the page component', async () => {
+    const addToCart = jest.fn();
     await act(() =>
       render(
         <Router>
-          <Products />
+          <Products handleAddToCart={addToCart} />
         </Router>
       )
     );
     const button = screen.getByRole('button', {
       name: /Add to cart/i,
     });
-    // UserEvent.click(button);
+    UserEvent.click(button);
   });
 });
