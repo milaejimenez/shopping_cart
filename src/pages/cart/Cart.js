@@ -24,7 +24,7 @@ export default function Cart({
   const totalPrice = (Math.round(calculatePrice * 100) / 100).toFixed(2);
 
   //Delete items that reach quantity 0
-  cart.map((product) => {
+  cart.forEach((product) => {
     if (product.quantity === 0) {
       const index = cart.indexOf(product);
       cart.splice(index, 1);
