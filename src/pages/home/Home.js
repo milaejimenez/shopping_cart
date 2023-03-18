@@ -22,10 +22,7 @@ export default function Home() {
 
   return (
     <div className="content-wrapper">
-      <div
-        className="jumbotron"
-        style={{ backgroundImage: "url('/jumbotron-img.jpg')" }}
-      >
+      <div className="jumbotron">
         <div>
           <p>Everything you need straight to your doorstep</p>
           <button type="button">

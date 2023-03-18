@@ -1,5 +1,6 @@
 /* Jumbotrom */
 .jumbotron {
+  background-image: url('./jumbotron-img.jpg');
   background-color: grey;
   height: 80vh;
   display: flex;
