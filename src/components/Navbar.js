@@ -9,9 +9,9 @@ export default function Navbar({ totalItems }) {
       <nav>
         <h1>Fintastic</h1>
         <div className="navlinks">
-          <Link to="/">Home</Link>
-          <Link to="/products">Products</Link>
-          <Link to="/cart">
+          <Link to="/shopping_cart">Home</Link>
+          <Link to="/shopping_cart/products">Products</Link>
+          <Link to="/shopping_cart/cart">
             <Cart width="50px" height="50px" />
             <span>{totalItems}</span>
           </Link>

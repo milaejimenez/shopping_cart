@@ -46,13 +46,13 @@ function App() {
       <BrowserRouter>
         <Navbar totalItems={totalItems} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="shopping_cart/" element={<Home />} />
           <Route
-            path="/products"
+            path="shopping_cart/products"
             element={<Products handleAddToCart={addToCart} />}
           />
           <Route
-            path="/productdetails/:id"
+            path="shopping_cart/productdetails/:id"
             element={<Productdetails handleAddToCart={addToCart} />}
           />
           <Route
