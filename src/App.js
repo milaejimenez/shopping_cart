@@ -56,7 +56,7 @@ function App() {
             element={<Productdetails handleAddToCart={addToCart} />}
           />
           <Route
-            path="/cart"
+            path="shopping_cart/cart"
             element={
               <Cart
                 cart={cart}
