@@ -26,7 +26,7 @@ export default function Home() {
         <div>
           <p>Everything you need straight to your doorstep</p>
           <button type="button">
-            <Link to="/products">See Catalog</Link>
+            <Link to="/shopping_cart/products">See Catalog</Link>
           </button>
         </div>
       </div>
